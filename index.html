@@ -12,36 +12,43 @@
     <div class="books-container">
       <dialog id="new-book-dialog">
         <form id="add-book-form" action="#">
-          <div>
-            <label for="title">Title: </label
-            ><input name="title" type="text" required />
+          <div class="form-container">
+            <div class="block">
+              <label for="title">Title: </label
+              ><input name="title" type="text" required />
+            </div>
+            <div class="block">
+              <label for="author">Author: </label
+              ><input name="author" type="text" required />
+            </div>
+            <div class="block pages-read-container">
+              <div>
+                <label for="pages">Pages: </label
+                ><input name="pages" type="number" min="1" required />
+              </div>
+              <div>
+                <label for="read">Read: </label
+                ><input name="read" type="checkbox" />
+              </div>
+            </div>
+            <div class="dialog-buttons">
+              <input type="submit" value="Add" id="add-book" />
+              <button id="close-dialog" type="button">Close</button>
+            </div>
           </div>
-          <div>
-            <label for="author">Author: </label
-            ><input name="author" type="text" required />
-          </div>
-          <div>
-            <label for="pages">Pages: </label
-            ><input name="pages" type="number" min="1" required />
-          </div>
-          <div>
-            <label for="read">Read: </label
-            ><input name="read" type="checkbox" />
-          </div>
-          <input type="submit" value="Add" id="add-book" />
-          <button id="close-dialog" type="button">Close</button>
         </form>
       </dialog>
-
-      <button id="new-book">Add New Book</button>
+      <div class="new-book-container">
+        <button id="new-book">Add New Book</button>
+      </div>
       <table class="books-table">
         <thead>
           <tr>
-            <td>Title</td>
-            <td>Author</td>
-            <td>Pages</td>
-            <td>Read</td>
-            <td>Actions</td>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Pages</th>
+            <th>Read</th>
+            <th>Actions</th>
           </tr>
         </thead>
         <tbody id="books">

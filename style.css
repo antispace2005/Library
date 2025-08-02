@@ -1,0 +1,137 @@
+:root {
+  --primary-color: #17313e;
+  --secondary-color: #f3e2d4;
+}
+
+/* Reset Css */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+/* Title , Background */
+body {
+  background-color: var(--secondary-color);
+  padding: 20px;
+}
+
+h1 {
+  color: var(--primary-color);
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Buttons */
+
+button,
+input[type="submit"] {
+  padding: 9px 12px;
+  margin: 4px;
+  border: none;
+  border-radius: 10px;
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  font-size: inherit;
+}
+button:hover,
+input[type="submit"]:hover {
+  filter: brightness(90%);
+}
+button:active,
+input[type="submit"]:active {
+  filter: brightness(80%);
+}
+
+.delete-book,
+#close-dialog {
+  background-color: #b9375d;
+}
+.new-book-container {
+  justify-self: center;
+}
+
+/* Dialog */
+
+#new-book-dialog {
+  align-self: center;
+  justify-self: center;
+  padding: 30px;
+  border: none;
+  border-radius: 20px;
+  background-color: #b9375e27;
+}
+#new-book-dialog::backdrop {
+  backdrop-filter: blur(4px);
+}
+#new-book-dialog .block {
+  padding: 18px;
+  font-size: 20px;
+}
+input {
+  font-size: inherit;
+}
+
+input[type="text"] {
+  display: block;
+  max-width: 300px;
+}
+input[type="number"] {
+  width: 100px;
+}
+.pages-read-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.dialog-buttons {
+  display: grid;
+}
+
+/* Table */
+
+table {
+  table-layout: fixed;
+  width: 90%;
+  min-width: 1000px;
+  margin: 0 auto;
+  border-collapse: separate;
+  border-radius: 20px;
+  border-spacing: 0;
+  color: var(--primary-color);
+}
+
+th,
+td {
+  padding: 0.6em;
+}
+
+tr :nth-child(5) {
+  width: 300px;
+}
+tr :nth-child(4),
+tr :nth-child(3) {
+  width: 80px;
+}
+
+thead {
+  background-color: #b9375d;
+  color: var(--secondary-color);
+}
+
+thead th:first-of-type {
+  border-top-left-radius: 20px;
+}
+
+thead th:last-of-type {
+  border-top-right-radius: 20px;
+}
+.delete-book {
+  margin-left: 50px;
+  margin-right: 10px;
+}
+
+tbody tr:hover {
+  background-color: var(--secondary-color);
+  filter: brightness(98%);
+}

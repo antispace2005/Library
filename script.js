@@ -48,6 +48,7 @@ function updateLibrary() {
     bookRow.appendChild(bookRead);
     //Actions
     const bookActions = document.createElement("td");
+    bookActions.classList.add("actions");
     const bookDeleteButton = document.createElement("button");
     bookDeleteButton.classList.add("delete-book");
     bookDeleteButton.textContent = "Delete";
@@ -119,5 +120,9 @@ form.addEventListener("submit", addBookButtonAction);
 theHobbit = new Book("The Hobbit", "J.R.R Tolkein", 295, false);
 addBookToLibrary(theHobbit);
 
+theHobbit = new Book("The Hobbit", "J.R.R Tolkein", 295, true);
+addBookToLibrary(theHobbit);
+theHobbit = new Book("The Hobbit", "J.R.R Tolkein", 295, true);
+addBookToLibrary(theHobbit);
 theHobbit = new Book("The Hobbit", "J.R.R Tolkein", 295, true);
 addBookToLibrary(theHobbit);
