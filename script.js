@@ -44,7 +44,11 @@ function updateLibrary() {
     bookRow.appendChild(bookPages);
     //Read
     const bookRead = document.createElement("td");
-    bookRead.innerHTML = book.read;
+    if (book.read) {
+      bookRead.textContent = "Read";
+    } else {
+      bookRead.textContent = "Unread";
+    }
     bookRow.appendChild(bookRead);
     //Actions
     const bookActions = document.createElement("td");
@@ -115,14 +119,4 @@ function addBookButtonAction(e) {
   form.reset();
 }
 form.addEventListener("submit", addBookButtonAction);
-
-//tests
-theHobbit = new Book("The Hobbit", "J.R.R Tolkein", 295, false);
-addBookToLibrary(theHobbit);
-
-theHobbit = new Book("The Hobbit", "J.R.R Tolkein", 295, true);
-addBookToLibrary(theHobbit);
-theHobbit = new Book("The Hobbit", "J.R.R Tolkein", 295, true);
-addBookToLibrary(theHobbit);
-theHobbit = new Book("The Hobbit", "J.R.R Tolkein", 295, true);
-addBookToLibrary(theHobbit);
+updateLibrary();
