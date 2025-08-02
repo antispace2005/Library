@@ -87,6 +87,9 @@ input[type="number"] {
 .dialog-buttons {
   display: grid;
 }
+input[type="checkbox"] {
+  transform: scale(1.7);
+}
 
 /* Table */
 
