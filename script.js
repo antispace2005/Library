@@ -28,6 +28,8 @@ function updateLibrary() {
   for (const book of myLibrary) {
     //Add Books the the table in html
     const bookRow = document.createElement("tr");
+    bookRow.dataset.id = book.id;
+
     //Title
     const bookTitle = document.createElement("td");
     bookTitle.innerHTML = book.title;
@@ -46,13 +48,25 @@ function updateLibrary() {
     bookRow.appendChild(bookRead);
     //Actions
     const bookActions = document.createElement("td");
-    const bookDelete = document.createElement("button");
-    bookDelete.classList.add("delete-book");
-    bookRow.id = book.id;
-    bookDelete.innerHTML = "Delete";
-    bookDelete.addEventListener("click", () => deleteBookFromLibrary(book.id));
+    const bookDeleteButton = document.createElement("button");
+    bookDeleteButton.classList.add("delete-book");
+    bookDeleteButton.textContent = "Delete";
+    bookDeleteButton.addEventListener("click", () =>
+      deleteBookFromLibrary(book.id)
+    );
+    bookActions.appendChild(bookDeleteButton);
+    const bookReadButton = document.createElement("button");
+    if (book.read) {
+      bookReadButton.textContent = "Unread Book";
+    } else {
+      bookReadButton.textContent = "Read Book";
+    }
 
-    bookActions.appendChild(bookDelete);
+    bookReadButton.addEventListener("click", function () {
+      book.read = !book.read;
+      updateLibrary();
+    });
+    bookActions.appendChild(bookReadButton);
     bookRow.appendChild(bookActions);
 
     libraryTableBody.appendChild(bookRow);
