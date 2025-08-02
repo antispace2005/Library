@@ -11,13 +11,29 @@
     <h1>Library</h1>
     <div class="books-container">
       <dialog id="new-book-dialog">
-        <h2>Hello Dialog!</h2>
-        <p>This is a modal dialog.</p>
-        <button id="close-dialog">Close</button>
-        <button id="add-book">Add</button>
+        <form id="add-book-form" action="#">
+          <div>
+            <label for="title">Title: </label
+            ><input name="title" type="text" required />
+          </div>
+          <div>
+            <label for="author">Author: </label
+            ><input name="author" type="text" required />
+          </div>
+          <div>
+            <label for="pages">Pages: </label
+            ><input name="pages" type="number" min="1" required />
+          </div>
+          <div>
+            <label for="read">Read: </label
+            ><input name="read" type="checkbox" />
+          </div>
+          <input type="submit" value="Add" id="add-book" />
+          <button id="close-dialog" type="button">Close</button>
+        </form>
       </dialog>
 
-      <button id="new-book">New Book</button>
+      <button id="new-book">Add New Book</button>
       <table class="books-table">
         <thead>
           <tr>

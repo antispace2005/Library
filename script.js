@@ -2,7 +2,8 @@ const myLibrary = [];
 const libraryTableBody = document.getElementById("books");
 const newBookButton = document.getElementById("new-book");
 const newBookDialog = document.getElementById("new-book-dialog");
-const closeBookDialog = Document.getElementById("close-dialog");
+const closeBookDialog = document.getElementById("close-dialog");
+const form = document.getElementById("add-book-form");
 
 function Book(title, author, pages, read) {
   this.title = title;
@@ -72,10 +73,35 @@ function deleteBookFromLibrary(bookId) {
   updateLibrary();
 }
 
-function newBook() {}
+//dialog
+
+function newBook() {
+  newBookDialog.showModal();
+}
 
 newBookButton.addEventListener("click", newBook);
 
+closeBookDialog.addEventListener("click", () => {
+  newBookDialog.close();
+});
+
+function addBookButtonAction(e) {
+  e.preventDefault();
+
+  const formData = new FormData(form);
+  const title = formData.get("title");
+  const author = formData.get("author");
+  const pages = formData.get("pages");
+  const read = formData.get("read");
+  book = new Book(title, author, pages, !!read);
+  addBookToLibrary(book);
+  updateLibrary();
+  newBookDialog.close();
+  form.reset();
+}
+form.addEventListener("submit", addBookButtonAction);
+
+//tests
 theHobbit = new Book("The Hobbit", "J.R.R Tolkein", 295, false);
 addBookToLibrary(theHobbit);
 
