@@ -5,13 +5,16 @@ const newBookDialog = document.getElementById("new-book-dialog");
 const closeBookDialog = document.getElementById("close-dialog");
 const form = document.getElementById("add-book-form");
 
-function Book(title, author, pages, read) {
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.read = read;
-  this.id = crypto.randomUUID();
-  this.info = function () {
+class Book {
+  constructor(title, author, pages, read) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.read = read;
+    this.id = crypto.randomUUID();
+  }
+
+  info() {
     if (read) {
       readMsg = "read";
     } else {
@@ -20,7 +23,7 @@ function Book(title, author, pages, read) {
     console.log(
       `${this.title} by ${this.author}, ${this.pages} pages, ${readMsg}`
     );
-  };
+  }
 }
 
 function updateLibrary() {
